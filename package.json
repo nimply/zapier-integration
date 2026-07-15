@@ -1,0 +1,23 @@
+{
+  "name": "nimply",
+  "version": "1.1.1",
+  "description": "Nimply is a social media tool for creators, marketers, and agencies to schedule and publish posts across major platforms such as Instagram, TikTok, YouTube etc.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --testTimeout 10000",
+    "validate": "zapier validate"
+  },
+  "engines": {
+    "node": ">=18",
+    "npm": ">=5.6.0"
+  },
+  "dependencies": {
+    "zapier-platform-core": "19.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nock": "^13.5.6",
+    "zapier-platform-cli": "19.0.0"
+  },
+  "private": true
+}
