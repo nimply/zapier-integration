@@ -1,6 +1,6 @@
 {
   "name": "nimply",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Nimply is a social media tool for creators, marketers, and agencies to schedule and publish posts across major platforms such as Instagram, TikTok, YouTube etc.",
   "main": "index.js",
   "scripts": {

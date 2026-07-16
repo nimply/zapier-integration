@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.2.0
+
+Actions (platform-specific creates, with each platform's full option set):
+
+- create/create_youtube_video — upload a video or Short with category, visibility, license, subscriber notification, embedding, and made-for-kids
+- create/create_tiktok_post — post a video or photos with privacy level (dynamic, from the account's allowed levels), comment/Duet/Stitch settings, and commercial-content disclosure
+- create/create_pinterest_pin — create a pin on a specific board (dynamic board dropdown) with a destination link and alt text
+- create/create_linkedin_post — post to a profile or company page with visibility control
+
+Hidden dropdown triggers powering the above: list_youtube_channels, list_tiktok_channels, list_pinterest_channels, list_linkedin_channels, list_pinterest_boards, list_tiktok_privacy_levels.
+
 ## 1.1.1
 
 Triggers:

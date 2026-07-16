@@ -17,7 +17,14 @@ Built with `zapier-platform-core` **19.0.0** (plain JavaScript, `zapier init` co
 | Trigger (polling, hidden) | `list_channels` | `GET /v1/channels` — powers dynamic channel dropdowns only |
 | Trigger (polling, hidden) | `list_posts` | `GET /v1/posts` — powers dynamic post dropdowns only |
 | Trigger (polling, hidden) | `list_draft_posts` / `list_pending_posts` / `list_scheduled_posts` | Status-filtered dropdown sources for actions that only accept posts in one state |
+| Trigger (polling, hidden) | `list_youtube_channels` / `list_tiktok_channels` / `list_pinterest_channels` / `list_linkedin_channels` | Platform-filtered channel dropdown sources for the platform-specific creates |
+| Trigger (polling, hidden) | `list_pinterest_boards` | `GET /v1/channels/{id}/pinterest/boards` — board dropdown for Create Pinterest Pin (reads `channelId` from the form) |
+| Trigger (polling, hidden) | `list_tiktok_privacy_levels` | `GET /v1/channels/{id}/tiktok/creator-info` — privacy dropdown for Create TikTok Post (reads `channelId` from the form) |
 | Create | `create_post` | `POST /v1/posts` with an `Idempotency-Key` header; `schedule` supports `draft` / `next_slot` / `now` / ISO 8601 |
+| Create | `create_youtube_video` | `POST /v1/posts/youtube` — title (required), video/Short, category, visibility, license, notify subscribers, embedding, made-for-kids |
+| Create | `create_tiktok_post` | `POST /v1/posts/tiktok` — privacy level (required, dynamic), comments/Duet/Stitch toggles, branded-content disclosure |
+| Create | `create_pinterest_pin` | `POST /v1/posts/pinterest` — board (required, dynamic), destination link, alt text |
+| Create | `create_linkedin_post` | `POST /v1/posts/linkedin` — content (required), media, visibility PUBLIC/CONNECTIONS |
 | Create | `upload_media` | `POST /v1/media` (import from public URL) |
 | Create | `schedule_post` | `POST /v1/posts/{id}/schedule` (`{scheduledAt}`, future ISO 8601) |
 | Create | `unschedule_post` | `POST /v1/posts/{id}/unschedule` — `SCHEDULED` → `DRAFT`, clears the publish time |
@@ -139,9 +146,3 @@ searches/get_workspace_analytics.js
 test/create_post.test.js
 test/post_actions.test.js
 ```
-
-## Contributing & license
-
-This repo is a public mirror of the integration source — the canonical development happens in Nimply's internal monorepo, and releases are mirrored here. Bug reports and feature requests are very welcome as [issues](../../issues); for pull requests, please open an issue first so we can coordinate the change upstream.
-
-Licensed under the [MIT License](./LICENSE).
