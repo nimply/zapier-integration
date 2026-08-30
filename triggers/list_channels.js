@@ -3,11 +3,15 @@ const { API_BASE_URL } = require('../constants');
 const perform = async (z, bundle) => {
   const response = await z.request({ url: `${API_BASE_URL}/v1/channels` });
 
-  return response.data.map((channel) => ({
-    id: channel.id,
-    name: `${channel.name} (${channel.type})`,
-    type: channel.type,
-  }));
+  // Powers the channel dropdown for post creation — hide messaging-only
+  // channels (capabilities.publish === false, e.g. WhatsApp).
+  return response.data
+    .filter((channel) => !channel.capabilities || channel.capabilities.publish !== false)
+    .map((channel) => ({
+      id: channel.id,
+      name: `${channel.name} (${channel.type})`,
+      type: channel.type,
+    }));
 };
 
 module.exports = {
