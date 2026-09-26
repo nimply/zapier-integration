@@ -17,6 +17,7 @@ const postPublished = require('./triggers/post_published');
 const postRejected = require('./triggers/post_rejected');
 const listPinterestBoards = require('./triggers/list_pinterest_boards');
 const listTikTokPrivacyLevels = require('./triggers/list_tiktok_privacy_levels');
+const listLinkPages = require('./triggers/list_link_pages');
 const {
   listYouTubeChannels,
   listTikTokChannels,
@@ -37,8 +38,10 @@ const schedulePost = require('./creates/schedule_post');
 const unschedulePost = require('./creates/unschedule_post');
 const updatePost = require('./creates/update_post');
 const uploadMedia = require('./creates/upload_media');
+const addLinkBlock = require('./creates/add_link_block');
 const findChannel = require('./searches/find_channel');
 const findPost = require('./searches/find_post');
+const findLinkPage = require('./searches/find_link_page');
 const getWorkspaceAnalytics = require('./searches/get_workspace_analytics');
 
 module.exports = {
@@ -71,9 +74,11 @@ module.exports = {
     [listLinkedInChannels.key]: listLinkedInChannels,
     [listPinterestBoards.key]: listPinterestBoards,
     [listTikTokPrivacyLevels.key]: listTikTokPrivacyLevels,
+    [listLinkPages.key]: listLinkPages,
   },
 
   creates: {
+    [addLinkBlock.key]: addLinkBlock,
     [approvePost.key]: approvePost,
     [createPost.key]: createPost,
     [createYouTubeVideo.key]: createYouTubeVideo,
@@ -93,6 +98,7 @@ module.exports = {
   searches: {
     [findChannel.key]: findChannel,
     [findPost.key]: findPost,
+    [findLinkPage.key]: findLinkPage,
     [getWorkspaceAnalytics.key]: getWorkspaceAnalytics,
   },
 };

@@ -34,6 +34,9 @@ Built with `zapier-platform-core` **19.0.0** (plain JavaScript, `zapier init` co
 | Create | `request_approval` | `POST /v1/posts/{id}/request-approval` (`DRAFT` → `PENDING_APPROVAL`) |
 | Create | `approve_post` | `POST /v1/posts/{id}/approve` (`{comment?}`) |
 | Create | `reject_post` | `POST /v1/posts/{id}/reject` (`{comment?}`) |
+| Create | `add_link_block` | `POST /v1/link-pages/{id}/blocks` (or `PATCH …/blocks/{replaceBlockId}`) then optional `POST …/publish` — link/text/section/post card/product/coupon/countdown/notice/FAQ/testimonial blocks |
+| Search | `find_link_page` | `GET /v1/link-pages`, filtered by exact handle client-side; empty handle returns all |
+| Trigger (polling, hidden) | `list_link_pages` | `GET /v1/link-pages` — page dropdown for Add Link Block |
 | Search | `find_channel` | `GET /v1/channels`, client-side name-contains filter; empty name returns all channels |
 | Search | `find_post` | `GET /v1/posts?status=&channelId=&limit=` (limit defaults to 5), returns the `data` array |
 | Search | `get_workspace_analytics` | `GET /v1/analytics/workspace?from=&to=` — single summary wrapped in an array with a derived `id` |
@@ -44,7 +47,7 @@ Triggers subscribe via `POST /v1/webhooks` (`{name, url: bundle.targetUrl, event
 
 - Authorize: `https://app.nimply.io/oauth/authorize`
 - Token: `https://api.nimply.io/oauth/token` (JSON body, no client secret)
-- Scopes: `workspace:read channels:read posts:read posts:write posts:publish media:read media:write analytics:read webhooks:manage`
+- Scopes: `workspace:read channels:read posts:read posts:write posts:publish media:read media:write analytics:read webhooks:manage links:read links:write`
 - Connection test: `GET /v1/workspace`; connection label = workspace `name`
 
 PKCE is handled by `enablePkce: true` in `authentication.js`: Zapier generates the verifier, automatically appends `code_challenge` + `code_challenge_method=S256` to the authorize URL, and exposes the verifier as `bundle.inputData.code_verifier`, which we send in the token-exchange body.

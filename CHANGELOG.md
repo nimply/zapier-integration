@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.3.0
+
+Link pages (nimply.link):
+
+- create/add_link_block — add a link button, text, section, post card, product, coupon, countdown, notice bar, FAQ or testimonial block to a page (optional position, show-from/hide-after schedule, publish-after toggle); `Replace Block ID` updates an existing block in place instead
+- search/find_link_page — find a page by handle (empty = all pages)
+- hidden trigger list_link_pages — page dropdown for the action
+- Scopes requested now include `links:read links:write`
+
 ## 1.2.0
 
 Actions (platform-specific creates, with each platform's full option set):

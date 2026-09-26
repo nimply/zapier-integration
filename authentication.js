@@ -10,6 +10,8 @@ const SCOPES = [
   'media:write',
   'analytics:read',
   'webhooks:manage',
+  'links:read',
+  'links:write',
 ].join(' ');
 
 // Exchange the authorization code (+ PKCE code_verifier) for tokens.
