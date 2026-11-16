@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.4.0
 
 - create/create_youtube_video — new optional `Tags` field (a list of keywords; YouTube allows 500 characters for all tags together)
 
