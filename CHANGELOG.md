@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- create/create_youtube_video — new optional `Tags` field (a list of keywords; YouTube allows 500 characters for all tags together)
+
 ## 1.3.0
 
 Link pages (nimply.link):

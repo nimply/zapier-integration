@@ -9,6 +9,7 @@ const perform = async (z, bundle) => {
     description,
     videoType,
     category,
+    tags,
     visibility,
     license,
     notifySubscribers,
@@ -21,6 +22,7 @@ const perform = async (z, bundle) => {
   if (description) body.description = description;
   if (videoType) body.videoType = videoType;
   if (category) body.category = category;
+  if (Array.isArray(tags) && tags.length) body.tags = tags;
   if (visibility) body.visibility = visibility;
   if (license) body.license = license;
   if (notifySubscribers !== undefined) body.notifySubscribers = notifySubscribers;
@@ -108,6 +110,15 @@ module.exports = {
           27: 'Education',
           28: 'Science & Technology',
         },
+      },
+      {
+        key: 'tags',
+        label: 'Tags',
+        type: 'string',
+        required: false,
+        list: true,
+        helpText:
+          'Words people might search for, one per line (no "#" needed). YouTube allows 500 characters for all tags together.',
       },
       {
         key: 'visibility',
